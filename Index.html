@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ton Plus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #0a0a0a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .card {
+      margin: 40px auto;
+      max-width: 320px;
+      background: #151515;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #00e5ff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>🚀 Ton Plus</h2>
+    <p>Mining Simulator</p>
+
+    <h1 id="balance">0.000000 TON</h1>
+
+    <button onclick="mine()">⛏ Mine</button>
+  </div>
+
+  <script>
+    let balance = 0;
+
+    function mine() {
+      balance += 0.0005;
+      document.getElementById("balance").innerText =
+        balance.toFixed(6) + " TON";
+
+      if (window.Telegram?.WebApp) {
+        Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      }
+    }
+  </script>
+
+</body>
+</html>
